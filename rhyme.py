@@ -3,6 +3,7 @@ import sqlite3 as sql
 import sys, os, os.path
 
 _rhymedb_path = os.path.join(sys.prefix, 'data/rhyme.db')
+_rhymedb_path = 'pyrhyme/data/rhyme.db'
 try:
     _conn = sql.connect(_rhymedb_path)
 except sql.OperationalError:
@@ -25,7 +26,7 @@ def rhymes_with(word):
 
 def main():
     for word in sys.argv[1:]:
-        print '%s: %s' % (word, ', '.join(rhymes_with(word)))
+        print('%s: %s' % (word, ', '.join(rhymes_with(word))))
 
 
 main() if __name__=='__main__' else None
